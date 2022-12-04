@@ -1,10 +1,15 @@
 package main;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import cooperation.ClientRequest;
-import cooperation.ServerResponse;
+import cooper.ClientRequest;
+import cooper.ServerResponse;
 import entities.UserStatus;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -21,8 +26,8 @@ public class Runner extends Application implements Runnable {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/index.fxml"));
-        primaryStage.setTitle("Client Application");
-        primaryStage.setScene(new Scene(root, 700, 300));
+        primaryStage.setTitle("Client");
+        primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.setResizable(false);
         primaryStage.show();
     }
