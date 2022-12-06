@@ -2,7 +2,6 @@ package control.cinemahall;
 
 import cooper.ClientRequest;
 import cooper.ServerResponse;
-import entities.CinemaHall;
 import entities.attribute.CinemaHallAttribute;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -30,7 +29,7 @@ public class CinemaHallListController {
     private TableColumn<CinemaHallAttribute, String> hallType;
 
     @FXML
-    private TableColumn<CinemaHallAttribute, Integer> hallSeatsNumber;
+    private TableColumn<CinemaHallAttribute, String> hallSeatsNumber;
 
     @FXML
     private Button addCinemaHall;
@@ -45,7 +44,7 @@ public class CinemaHallListController {
     private Button main;
 
     private SceneChanger sceneChanger = SceneChanger.getInstance();
-    private List<CinemaHall> cinemaHalls = new ArrayList<>();
+    //private List<CinemaHall> cinemaHalls = new ArrayList<>();
     private MapParser parser = MapParser.getInstance();
 
 
@@ -59,7 +58,7 @@ public class CinemaHallListController {
                 if (event.getClickCount() == 2) {
                     CinemaHallAttribute cinemaHallAttribute = table.getSelectionModel().getSelectedItem();
                     sceneChanger.setDataId(cinemaHallAttribute.getHallId().getValue());
-                    sceneChanger.changeSceneAndWait("/fxml/department-action.fxml");
+                    sceneChanger.changeSceneAndWait("/fxml/add_cinemahall.fxml");
                     fillMoviesTable();
                 }
             });
@@ -69,7 +68,7 @@ public class CinemaHallListController {
 
 
         addCinemaHall.setOnAction(event -> {
-            sceneChanger.changeSceneAndWait("/fxml/department-action.fxml");
+            sceneChanger.changeSceneAndWait("/fxml/add_cinemahall.fxml");
             fillMoviesTable();
         });
 
@@ -95,6 +94,7 @@ public class CinemaHallListController {
         table.setItems(FXCollections.observableArrayList(cinemaHallAttributes));
 
         hallType.setCellValueFactory(cellData -> cellData.getValue().getHallType());
+        //hallSeatsNumber.setCellValueFactory(cellData -> cellData.intValue().gethallSeatsNumber();
     }
     private void delete() {
         int movieId = table.getSelectionModel()
@@ -102,10 +102,7 @@ public class CinemaHallListController {
                 .getValue()
                 .getHallId()
                 .getValue();
-        if (table.getSelectionModel().selectedItemProperty().getValue().getHallSeatsNumber().getValue() > 0) {
-            Alert alert = new Alert(ERROR, "Нельзя удалить кафедру если в ней есть сотрудники!");
-            alert.show();
-        } else {
+
             Map<String, Object> map = new HashMap<>();
             map.put("hallId", movieId);
             Runner.sendData(new ClientRequest("deleteCinemaHall", map));
@@ -117,7 +114,6 @@ public class CinemaHallListController {
                 alert.show();
             }
         }
-    }
     private void getCinemaHalls() {
 
         Runner.sendData(new ClientRequest("getAllCinemaHalls", new HashMap<>()));
@@ -125,7 +121,7 @@ public class CinemaHallListController {
         if (!response.isError()) {
             Map<String, Object> data = response.getData();
             List productData = (List) data.get("cinemaHalls");
-            cinemaHalls = parser.cinemaHalls(productData);
+            //cinemaHalls = parser.cinemaHalls(productData);
 
         }
     }

@@ -9,7 +9,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import main.Runner;
 import usage.MapParser;
@@ -47,45 +46,20 @@ public class MovieListController {
 
     @FXML
     private Button deleteMovie;
-    @FXML
-    private Text movieName;
+//    @FXML
+//    private Text movieName;
 
-    @FXML
-    private Text movieGenre;
-
-    @FXML
-    private Text moviePrice;
-
-    @FXML
-    private Button filter;
+//    @FXML
+//    private Text movieGenre;
+//
+//    @FXML
+//    private Text moviePrice;
 
     @FXML
     private Button back;
 
     @FXML
     private Button main;
-
-
-    @FXML
-    private AnchorPane categoriesPane;
-
-    @FXML
-    private Button categories;
-
-    @FXML
-    private CheckBox category1;
-
-    @FXML
-    private CheckBox category2;
-
-    @FXML
-    private CheckBox category3;
-
-    @FXML
-    private CheckBox category4;
-
-    @FXML
-    private CheckBox category5;
 
     @FXML
     private Button saveToFile;
@@ -106,7 +80,7 @@ public class MovieListController {
         fillMoviesTable();
 
         addMovie.setOnAction(event -> {
-            sceneChanger.changeSceneAndWait("/fxml/add-worker.fxml");
+            sceneChanger.changeSceneAndWait("/fxml/add_movie.fxml");
             fillMoviesTable();
         });
 
@@ -207,15 +181,15 @@ public class MovieListController {
             alert.show();
         }
     }
-    private List<CinemaHall> getCinemaHalls() {
-        Runner.sendData(new ClientRequest("getAllCinemaHalls", new HashMap<>()));
-        ServerResponse response = Runner.getData();
-        if (!response.isError()) {
-            Map<String, Object> cinemaHallMap = response.getData();
-            List cinemaHallData = (List) cinemaHallMap.get("cinemaHalls");
-            return parser.cinemaHalls(cinemaHallData);
-        }
-        return new ArrayList<>();
-    }
+//    private List<CinemaHall> getCinemaHalls() {
+//        Runner.sendData(new ClientRequest("getAllCinemaHalls", new HashMap<>()));
+//        ServerResponse response = Runner.getData();
+//        if (!response.isError()) {
+//            Map<String, Object> cinemaHallMap = response.getData();
+//            List cinemaHallData = (List) cinemaHallMap.get("cinemaHalls");
+//            return parser.cinemaHalls(cinemaHallData);
+//        }
+//        return new ArrayList<>();
+//    }
 
 }

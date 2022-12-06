@@ -17,8 +17,9 @@ public class CinemaHallAttribute {
     private IntegerProperty hallSeatsNumber;
 
     public CinemaHallAttribute(CinemaHall cinemaHall) {
-        this.hallType = new SimpleStringProperty(cinemaHall.getHallType());
+
         this.hallId = new SimpleIntegerProperty(cinemaHall.getHallId());
+        this.hallType = new SimpleStringProperty(cinemaHall.getHallType());
         this.hallSeatsNumber = new SimpleIntegerProperty(cinemaHall.getHallSeatsNumber());
     }
 

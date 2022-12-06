@@ -34,9 +34,6 @@ public class ProfileController {
     private Button changePassword;
 
     @FXML
-    private Button changeEmail;
-
-    @FXML
     private Button back;
 
     @FXML
@@ -49,10 +46,7 @@ public class ProfileController {
     private void initialize() {
         fillInformation();
         changePassword.setOnAction(event -> SceneChanger.getInstance().changeScene("/fxml/change-password.fxml"));
-        changeEmail.setOnAction(event -> {
-            SceneChanger.getInstance().changeSceneAndWait("/fxml/change-email.fxml");
-            fillInformation();
-        });
+
         back.setOnAction(event -> {
             back.getScene().getWindow().hide();
             SceneChanger.getInstance().changeScene("/fxml/main.fxml");

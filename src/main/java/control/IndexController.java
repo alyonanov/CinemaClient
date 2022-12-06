@@ -1,13 +1,18 @@
 package control;
 
-import cooperation.ClientRequest;
-import cooperation.ServerResponse;
+import cooper.ClientRequest;
+import cooper.ServerResponse;
 import entities.User;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import main.Runner;
 import usage.MapParser;
-import usage.hasher.PasswordHashKeeper;
-import usage.validator.SceneChanger;
-import usage.validator.UserInformationValidator;
+import usage.confirm.SceneChanger;
+
+import usage.hash.PasswordHashKeeper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,10 +35,12 @@ public class IndexController {
     @FXML
     private Button signUp;
 
+    @FXML
+    private Button forgotPassword;
 
-    private UserInformationValidator validator = UserInformationValidator.getInstance();
-    private PasswordHashKeeper hashKeeper = PasswordHashKeeper.getInstance();
     private MapParser parser = MapParser.getInstance();
+
+    private PasswordHashKeeper hashKeeper = PasswordHashKeeper.getInstance();
 
     @FXML
     private void initialize() {
@@ -42,7 +49,10 @@ public class IndexController {
             signIn.getScene().getWindow().hide();
             SceneChanger.getInstance().changeScene("/fxml/sign-up.fxml");
         });
-
+        forgotPassword.setOnAction(event -> {
+            forgotPassword.getScene().getWindow().hide();
+            SceneChanger.getInstance().changeScene("/fxml/restore-password.fxml");
+        });
     }
 
     private void processSignIn() {
@@ -64,7 +74,15 @@ public class IndexController {
                 SceneChanger.getInstance().changeScene("/fxml/main.fxml");
                 Alert alert = new Alert(INFORMATION, "Вход выполнен успешно!");
                 alert.show();
+            } else {
+                Alert alert = new Alert(ERROR, response.getErrorMessage());
+                alert.show();
             }
+        } else {
+            Alert alert = new Alert(ERROR, "Информация некорректна:\n" +
+                    "1) логин должен состоять из 6-15 символов: латинских букв, дефисов (-) и нижних подчеркиваний (_)\n" +
+                    "2) пароль должен состоять из 8-30 символов: латинских букв, дефисов (-) и нижних подчеркиваний (_)");
+            alert.show();
         }
     }
 }

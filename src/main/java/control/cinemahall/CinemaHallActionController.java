@@ -29,6 +29,9 @@ public class CinemaHallActionController {
     @FXML
     private TextField hallType;
 
+//    @FXML
+//    private TextField hallSeatsNumber;
+
     @FXML
     private Label label;
 
@@ -60,6 +63,7 @@ public class CinemaHallActionController {
 
     private void add() {
         String hallType = this.hallType.getText();
+        //String hallSeatsNumber = this.hallSeatsNumber.getText();
 
         if (Objects.nonNull(hallType) && !hallType.isEmpty() && hallType.length() > 3 && hallType.length() <= 50) {
             Map<String, Object> data = new HashMap<>();
@@ -67,16 +71,16 @@ public class CinemaHallActionController {
             data.put("hallType", hallType);
 
             Runner.sendData(new ClientRequest("addCinemaHall", data));
-            ServerResponse response = Runner.getData();
-            if (response.isError()) {
-                Alert alert = new Alert(ERROR, "Информация некорректна!");
-                alert.show();
-            } else {
+//            ServerResponse response = Runner.getData();
+//            if (response.isError()) {
+//                Alert alert = new Alert(ERROR, "Информация некорректна!");
+//                alert.show();
+//            } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Кафедра добавлена!");
                 alert.show();
                 clear();
                 save.getScene().getWindow().hide();
-            }
+
         } else {
             Alert alert = new Alert(ERROR, "Информация некорректна:\n" +
                     "Название кафедры должно быть более 3 символов но менее 50!");
