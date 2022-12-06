@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="305.0" prefWidth="500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.cinemahall.CinemaHallActionController">
+    <Button fx:id="save" layoutX="103.0" layoutY="230.0" mnemonicParsing="false" style="-fx-background-color: #DEDF42;" text="Сохранить">
+        <font>
+            <Font name="Georgia" size="16.0" />
+        </font>
+    </Button>
+    <Button fx:id="cancel" layoutX="306.0" layoutY="230.0" mnemonicParsing="false" style="-fx-background-color: #DEDF42;" text="Отмена">
+        <font>
+            <Font name="Georgia" size="16.0" />
+        </font>
+    </Button>
+   <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#dedf42" height="50.0" layoutX="-124.0" layoutY="19.0" strokeType="INSIDE" width="554.0" />
+    <Label fx:id="label" layoutX="121.0" layoutY="27.0" prefHeight="33.0" prefWidth="273.0" text="Добавление кинозала" textFill="WHITE">
+        <font>
+            <Font name="Candara Bold" size="27.0" />
+        </font>
+    </Label>
+    <TextField fx:id="hallType" layoutX="164.0" layoutY="92.0" prefHeight="39.0" prefWidth="299.0" promptText="(стандарт, комфорт, VIP)" style="-fx-background-radius: 15;">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </TextField>
+<!--    <TextField fx:id="hallSeatsNumber" layoutX="139.0" layoutY="152.0" prefHeight="39.0" prefWidth="389.0" promptText="название">-->
+<!--        <font>-->
+<!--            <Font size="18.0" />-->
+<!--        </font>-->
+<!--    </TextField>-->
+    <Label layoutX="55.0" layoutY="95.0" prefHeight="33.0" prefWidth="101.0" text="тип зала" textAlignment="CENTER" textFill="WHITE">
+        <font>
+            <Font name="Georgia" size="18.0" />
+        </font>
+    </Label>
+</AnchorPane>
