@@ -2,7 +2,9 @@ package control.cinemahall;
 
 import cooper.ClientRequest;
 import cooper.ServerResponse;
+import entities.CinemaHall;
 import entities.attribute.CinemaHallAttribute;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -29,7 +31,7 @@ public class CinemaHallListController {
     private TableColumn<CinemaHallAttribute, String> hallType;
 
     @FXML
-    private TableColumn<CinemaHallAttribute, String> hallSeatsNumber;
+    private TableColumn<CinemaHallAttribute, Integer> hallSeatsNumber;
 
     @FXML
     private Button addCinemaHall;
@@ -44,7 +46,7 @@ public class CinemaHallListController {
     private Button main;
 
     private SceneChanger sceneChanger = SceneChanger.getInstance();
-    //private List<CinemaHall> cinemaHalls = new ArrayList<>();
+    private List<CinemaHall> cinemaHalls = new ArrayList<>();
     private MapParser parser = MapParser.getInstance();
 
 
@@ -86,15 +88,32 @@ public class CinemaHallListController {
             SceneChanger.getInstance().changeScene("/fxml/main.fxml");
         });
     }
+    private void getCinemaHalls() {
 
+        Runner.sendData(new ClientRequest("getAllCinemaHalls", new HashMap<>()));
+        ServerResponse response = Runner.getData();
+        if (!response.isError()) {
+            Map<String, Object> data = response.getData();
+            List productData = (List) data.get("cinemaHalls");
+            cinemaHalls = parser.cinemaHalls(productData);
+
+        }
+    }
     private void fillMoviesTable() {
         getCinemaHalls();
         List<CinemaHallAttribute> cinemaHallAttributes = new ArrayList<>();
-
+        cinemaHalls.forEach(cinemaHall -> {
+                    cinemaHallAttributes.add(new CinemaHallAttribute(cinemaHall));
+                }
+        );
         table.setItems(FXCollections.observableArrayList(cinemaHallAttributes));
 
         hallType.setCellValueFactory(cellData -> cellData.getValue().getHallType());
-        //hallSeatsNumber.setCellValueFactory(cellData -> cellData.intValue().gethallSeatsNumber();
+        hallSeatsNumber.setCellValueFactory(cellData -> {
+            int count = cellData.getValue().getHallSeatsNumber().getValue().intValue();
+            return new SimpleIntegerProperty(count).asObject();
+        });
+        //hallSeatsNumber.setCellValueFactory(cellData -> cellData.getValue().gethallSeatsNumber();
     }
     private void delete() {
         int movieId = table.getSelectionModel()
@@ -114,16 +133,6 @@ public class CinemaHallListController {
                 alert.show();
             }
         }
-    private void getCinemaHalls() {
 
-        Runner.sendData(new ClientRequest("getAllCinemaHalls", new HashMap<>()));
-        ServerResponse response = Runner.getData();
-        if (!response.isError()) {
-            Map<String, Object> data = response.getData();
-            List productData = (List) data.get("cinemaHalls");
-            //cinemaHalls = parser.cinemaHalls(productData);
-
-        }
-    }
 }
 

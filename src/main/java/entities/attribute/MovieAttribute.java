@@ -16,6 +16,7 @@ public class MovieAttribute {
     private StringProperty movieGenre;
     private StringProperty movieCountry;
     private StringProperty movieDuration;
+    private IntegerProperty moviePrice;
     private CinemaHall cinemaHall;
 
 
@@ -25,7 +26,7 @@ public class MovieAttribute {
         this.movieGenre = new SimpleStringProperty(movie.getMovieGenre());
         this.movieCountry = new SimpleStringProperty(movie.getMovieCountry());
         this.movieDuration = new SimpleStringProperty(movie.getMovieDuration());
-
+        this.moviePrice = new SimpleIntegerProperty(movie.getMoviePrice());
         this.cinemaHall = movie.getCinemaHall();
     }
 }

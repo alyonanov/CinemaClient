@@ -38,7 +38,8 @@ public class AddMovieController {
 
     @FXML
     private TextField movieDuration;
-
+    @FXML
+    private TextField moviePrice;
     @FXML
     private ChoiceBox<CinemaHall> cinemaHall;
 
@@ -57,6 +58,7 @@ public class AddMovieController {
         String movieGenreText = this.movieGenre.getText();
         String movieCountryText = this.movieCountry.getText();
         String movieDurationText = this.movieDuration.getText();
+        String moviePriceText = this.moviePrice.getText();
 
         Map<String, Object> data = new HashMap<>();
 
@@ -64,6 +66,7 @@ public class AddMovieController {
         data.put("movieGenre", movieGenreText);
         data.put("movieCountry", movieCountryText);
         data.put("movieDuration", movieDurationText);
+        data.put("moviePrice", Integer.parseInt(moviePriceText));
         data.put("cinemaHallId", cinemaHall.getValue().getHallId());
 
             Runner.sendData(new ClientRequest("addMovie", data));

@@ -18,6 +18,12 @@ public class MainController {
     private Button allUsers;
 
     @FXML
+    private Button allUsers1;
+
+    @FXML
+    private Button booking;
+
+    @FXML
     private Button allDepartments;
 
 
@@ -30,6 +36,10 @@ public class MainController {
     private void initialize() {
         if (!"Администратор".equals(Runner.getStatus().getStatusName())) {
             allUsers.setVisible(false);
+            allUsers1.setVisible(false);
+        }
+        if ("Администратор".equals(Runner.getStatus().getStatusName())) {
+            booking.setVisible(false);
         }
 
         workers.setOnAction(event -> {

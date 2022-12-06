@@ -62,14 +62,14 @@ public class UsersController {
     private void initialize() {
         fillUserTable();
 
-        changeToAdmin.setOnAction(event -> {
-            changeUserStatus(1);
-            fillUserTable();
-        });
-        changeToUser.setOnAction(event -> {
-            changeUserStatus(2);
-            fillUserTable();
-        });
+//        changeToAdmin.setOnAction(event -> {
+//            changeUserStatus(1);
+//            fillUserTable();
+//        });
+//        changeToUser.setOnAction(event -> {
+//            changeUserStatus(2);
+//            fillUserTable();
+//        });
         main.setOnAction(event -> {
             main.getScene().getWindow().hide();
             SceneChanger.getInstance().changeScene("/fxml/main.fxml");
@@ -100,44 +100,44 @@ public class UsersController {
         surnameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
         statusColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUserStatus().getStatusName()));
         emailColumn.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
-        viewActionsForUser(null);
+        //viewActionsForUser(null);
         userTable.getSelectionModel()
-                .selectedItemProperty()
-                .addListener((observable, oldValue, newValue) -> viewActionsForUser(newValue));
+                .selectedItemProperty();
+               // .addListener((observable, oldValue, newValue) -> viewActionsForUser(newValue));
     }
 
-    private void changeUserStatus(int status) {
-        UserAttribute user = userTable.getSelectionModel().getSelectedItem();
-        int userId = user.getUserId();
-        Map<String, Object> data = new HashMap<>();
-        data.put("userId", userId);
-        data.put("statusId", status);
-        Runner.sendData(new ClientRequest("changeUserStatus", data));
-        ServerResponse response = Runner.getData();
-        if (!response.isError()) {
-            getUsers();
-            Alert alert = new Alert(INFORMATION, "Статус пользователя изменен!");
-            alert.show();
-        } else {
-            Alert alert = new Alert(ERROR, "Произошла ошибка!");
-            alert.show();
-        }
-    }
+//    private void changeUserStatus(int status) {
+//        UserAttribute user = userTable.getSelectionModel().getSelectedItem();
+//        int userId = user.getUserId();
+//        Map<String, Object> data = new HashMap<>();
+//        data.put("userId", userId);
+//        data.put("statusId", status);
+//        Runner.sendData(new ClientRequest("changeUserStatus", data));
+//        ServerResponse response = Runner.getData();
+//        if (!response.isError()) {
+//            getUsers();
+//            Alert alert = new Alert(INFORMATION, "Статус пользователя изменен!");
+//            alert.show();
+//        } else {
+//            Alert alert = new Alert(ERROR, "Произошла ошибка!");
+//            alert.show();
+//        }
+//    }
 
-    private void viewActionsForUser(UserAttribute user) {
-        if (user != null) {
-
-            if ("Администратор".equals(user.getUserStatus().getStatusName())) {
-                changeToAdmin.setVisible(false);
-                changeToUser.setVisible(false);
-            } else {
-                changeToAdmin.setVisible(true);
-                changeToUser.setVisible(false);
-            }
-        } else {
-            changeToAdmin.setVisible(false);
-            changeToUser.setVisible(false);
-        }
-    }
+//    private void viewActionsForUser(UserAttribute user) {
+//        if (user != null) {
+//
+//            if ("Администратор".equals(user.getUserStatus().getStatusName())) {
+//                changeToAdmin.setVisible(false);
+//                changeToUser.setVisible(false);
+//            } else {
+//                changeToAdmin.setVisible(true);
+//                changeToUser.setVisible(false);
+//            }
+//        } else {
+//            changeToAdmin.setVisible(false);
+//            changeToUser.setVisible(false);
+//        }
+//    }
 }
 

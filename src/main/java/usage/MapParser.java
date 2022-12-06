@@ -62,15 +62,15 @@ public class MapParser {
         movie.setMovieDuration((String) map.get("movieDuration"));
         movie.setMoviePrice((int) map.get("moviePrice"));
 
-        movie.setCinemaHall(cinemaHall((Map<String, Object>) map.get("cinemaHall")));
+        movie.setCinemaHall(cinemaHall((Map<String, Object>) map.get("cinemaHallId")));
 
         return movie;
     }
 
     //CINEMAHALL
-    public List<CinemaHall> cinemaHalls(List cinemaHallsData) {
+    public List<CinemaHall> cinemaHalls(List cinemaHallData) {
         List<CinemaHall> cinemaHalls = new ArrayList<>();
-        for (Map<String, Object> cinemaHall : (List<Map<String, Object>>) cinemaHallsData) {
+        for (Map<String, Object> cinemaHall : (List<Map<String, Object>>) cinemaHallData) {
             cinemaHalls.add(cinemaHall(cinemaHall));
         }
         return cinemaHalls;

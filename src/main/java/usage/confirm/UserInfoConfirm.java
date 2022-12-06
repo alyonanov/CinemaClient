@@ -13,10 +13,10 @@ public class UserInfoConfirm {
     private UserInfoConfirm() {
     }
 
-    private static final String USERNAME_FORMAT_REGEX = "[A-Za-z0-9][A-Za-z0-9_-]{4,13}[A-Za-z0-9]";
+    private static final String USERNAME_FORMAT_REGEX = ".{4,13}";
     private static final String NAME_FORMAT_REGEX = ".{2,30}";
     private static final String EMAIL_FORMAT_REGEX = "[a-z][[a-z][0-9][-][_]]{3,25}[@][a-z]{2,10}[.][a-z]{2,4}";
-    private static final String PASSWORD_FORMAT_REGEX = "[A-Za-z0-9][A-Za-z0-9_-]{6,28}[A-Za-z0-9]";
+    private static final String PASSWORD_FORMAT_REGEX = ".{4,28}";
 
     public boolean validate(String email) {
         return email.matches(EMAIL_FORMAT_REGEX);

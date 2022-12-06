@@ -2,14 +2,13 @@ package control.movie;
 
 import cooper.ClientRequest;
 import cooper.ServerResponse;
-import entities.CinemaHall;
 import entities.attribute.MovieAttribute;
 import entities.Movie;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import main.Runner;
 import usage.MapParser;
 import usage.confirm.SceneChanger;
@@ -40,7 +39,8 @@ public class MovieListController {
 
     @FXML
     private TableColumn<MovieAttribute, String> cinemaHallColumn;
-
+    @FXML
+    private TableColumn<MovieAttribute, Integer> moviePriceColumn;
     @FXML
     private Button addMovie;
 
@@ -52,9 +52,6 @@ public class MovieListController {
 //    @FXML
 //    private Text movieGenre;
 //
-//    @FXML
-//    private Text moviePrice;
-
     @FXML
     private Button back;
 
@@ -93,7 +90,7 @@ public class MovieListController {
             if (event.getClickCount() == 2) {
                 MovieAttribute movieAttribute = moviesTable.getSelectionModel().getSelectedItem();
                 sceneChanger.setDataId(movieAttribute.getMovieId().getValue());
-                sceneChanger.changeSceneAndWait("/fxml/edit-worker.fxml");
+                sceneChanger.changeSceneAndWait("/fxml/edit_movie.fxml");
                 fillMoviesTable();
             }
         });
@@ -163,6 +160,10 @@ public class MovieListController {
         movieGenreColumn.setCellValueFactory(cellData -> cellData.getValue().getMovieGenre());
         movieCountryColumn.setCellValueFactory(cellData -> cellData.getValue().getMovieCountry());
         movieDurationColumn.setCellValueFactory(cellData -> cellData.getValue().getMovieDuration());
+        moviePriceColumn.setCellValueFactory(cellData -> {
+            int moviePriceColumn = cellData.getValue().getMoviePrice().getValue().intValue();
+            return new SimpleIntegerProperty(moviePriceColumn).asObject();
+        });
         cinemaHallColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCinemaHall().getHallType()));
     }
 

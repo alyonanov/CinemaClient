@@ -40,7 +40,7 @@ public class Runner extends Application implements Runnable {
     @Override
     public void run() {
         try {
-            socket = new Socket("127.0.0.1", 5000);
+            socket = new Socket("127.0.0.1", 6000);
         } catch (IOException e) {
             e.printStackTrace();
         }
