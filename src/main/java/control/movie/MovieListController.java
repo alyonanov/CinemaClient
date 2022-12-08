@@ -46,12 +46,7 @@ public class MovieListController {
 
     @FXML
     private Button deleteMovie;
-//    @FXML
-//    private Text movieName;
 
-//    @FXML
-//    private Text movieGenre;
-//
     @FXML
     private Button back;
 
@@ -108,7 +103,7 @@ public class MovieListController {
         this.saveToFile.setOnAction(event -> {
 
             try {
-                FileWriter writer = new FileWriter("src/main/resources/workers" + ".txt");
+                FileWriter writer = new FileWriter("src/main/resources/movies" + ".txt");
 
                 for (Movie movie : this.movies) {
                     String movieName = movie.getMovieName();
@@ -133,7 +128,7 @@ public class MovieListController {
 
             } catch (IOException e) {
                 e.printStackTrace();
-                Alert alert = new Alert(ERROR, "Произошла ошибка при записи файл!");
+                Alert alert = new Alert(ERROR, "Ошибка при записи в файл");
                 alert.show();
             }
 
@@ -178,19 +173,9 @@ public class MovieListController {
         Runner.sendData(new ClientRequest("deleteMovie", map));
         ServerResponse response = Runner.getData();
         if (response.isError()) {
-            Alert alert = new Alert(ERROR, "Произошла ошибка при удалении фильма!");
+            Alert alert = new Alert(ERROR, "Ошибка удаления фильма");
             alert.show();
         }
     }
-//    private List<CinemaHall> getCinemaHalls() {
-//        Runner.sendData(new ClientRequest("getAllCinemaHalls", new HashMap<>()));
-//        ServerResponse response = Runner.getData();
-//        if (!response.isError()) {
-//            Map<String, Object> cinemaHallMap = response.getData();
-//            List cinemaHallData = (List) cinemaHallMap.get("cinemaHalls");
-//            return parser.cinemaHalls(cinemaHallData);
-//        }
-//        return new ArrayList<>();
-//    }
 
 }

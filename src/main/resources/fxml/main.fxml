@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MainController">
     <AnchorPane layoutX="-200.0" layoutY="119.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: black;">
-        <Button fx:id="workers" layoutX="244.0" layoutY="14.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="165.0" style="-fx-background-color: black; -fx-border-radius: 15; -fx-border-color: #DEDF42; -fx-border-width: 2;" text="Фильмотека" textFill="#dedf42">
+        <Button fx:id="workers" layoutX="244.0" layoutY="14.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="165.0" style="-fx-background-color: black; -fx-border-radius: 15; -fx-border-color: #DEDF42; -fx-border-width: 2;" text="Создать сеанс" textFill="#dedf42">
             <font>
                 <Font name="Georgia" size="17.0" />
             </font>
@@ -21,17 +21,22 @@
                 <Font name="Georgia" size="17.0" />
             </font>
         </Button>
-        <Button fx:id="allUsers" layoutX="244.0" layoutY="181.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="165.0" style="-fx-background-color: black; -fx-border-color: #DEDF42; -fx-border-radius: 15; -fx-border-width: 2;" text="Бронь сеанса" textFill="#dedf42">
+        <Button fx:id="allUsers" layoutX="244.0" layoutY="188.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="185.0" style="-fx-background-color: black; -fx-border-color: #DEDF42; -fx-border-radius: 15; -fx-border-width: 2;" text="Все пользователи" textFill="#dedf42">
             <font>
                 <Font name="Georgia" size="17.0" />
             </font>
         </Button>
-        <Button fx:id="allDepartments" layoutX="244.0" layoutY="90.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="165.0" style="-fx-background-color: black; -fx-border-radius: 15; -fx-border-color: #DEDF42; -fx-border-width: 2;" text="Кинозалы" textFill="#dedf42">
+        <Button fx:id="allDepartments" layoutX="244.0" layoutY="102.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="165.0" style="-fx-background-color: black; -fx-border-radius: 15; -fx-border-color: #DEDF42; -fx-border-width: 2;" text="Кинозалы" textFill="#dedf42">
             <font>
                 <Font name="Georgia" size="17.0" />
             </font>
         </Button>
-      <Button fx:id="allUsers1" layoutX="461.0" layoutY="181.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="211.0" style="-fx-background-color: black; -fx-border-color: #DEDF42; -fx-border-radius: 15; -fx-border-width: 2;" text="Сформировать афишу" textFill="#dedf42">
+      <Button fx:id="booking" layoutX="461.0" layoutY="102.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-radius: 15; -fx-border-color: #DEDF42; -fx-border-width: 2;" text="Забронировать" textFill="#dedf42">
+         <font>
+            <Font name="Georgia" size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="bookingList" layoutX="468.0" layoutY="188.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="185.0" style="-fx-background-color: black; -fx-border-color: #DEDF42; -fx-border-radius: 15; -fx-border-width: 2;" text="Заявки " textFill="#dedf42">
          <font>
             <Font name="Georgia" size="17.0" />
          </font>

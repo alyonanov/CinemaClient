@@ -3,6 +3,7 @@ package usage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import entities.*;
 
+import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -61,7 +62,6 @@ public class MapParser {
         movie.setMovieCountry((String) map.get("movieCountry"));
         movie.setMovieDuration((String) map.get("movieDuration"));
         movie.setMoviePrice((int) map.get("moviePrice"));
-
         movie.setCinemaHall(cinemaHall((Map<String, Object>) map.get("cinemaHallId")));
 
         return movie;
@@ -79,7 +79,21 @@ public class MapParser {
     public CinemaHall cinemaHall(Map<String, Object> map) {
         return new CinemaHall((int) map.get("hallId"), (String) map.get("hallType"), (int) map.get("hallSeatsNumber"));
     }
+    public List<Booking> bookings(List moviesData) {
+        List<Booking> bookings = new ArrayList<>();
+        for (Map<String, Object> booking : (List<Map<String, Object>>) moviesData) {
+            bookings.add(booking(booking));
+        }
+        return bookings;
+    }
 
+    public Booking booking(Map<String, Object> map) {
+        Booking booking = new Booking();
+        booking.setBookingId((int) map.get("bookingId"));
+        booking.setUserId(user((Map<String, Object>) map.get("userId")));
+        booking.setMovieId(movie((Map<String, Object>) map.get("movieId")));
+        return booking;
+    }
 
 
 }

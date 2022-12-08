@@ -45,6 +45,9 @@ public class EditMovieController {
     private TextField movieDuration;
 
     @FXML
+    private TextField moviePrice;
+
+    @FXML
     private ChoiceBox<CinemaHall> cinemaHall;
 
 
@@ -68,11 +71,11 @@ public class EditMovieController {
 
         if (!"Администратор".equals(Runner.getStatus().getStatusName())) {
             addMovie.setVisible(false);
-
             movieName.setEditable(false);
             movieGenre.setEditable(false);
             movieCountry.setEditable(false);
             movieDuration.setEditable(false);
+            moviePrice.setEditable(false);
             cinemaHall.setDisable(true);
         }
     }
@@ -82,6 +85,7 @@ public class EditMovieController {
         this.movieGenre.setText(this.movie.getMovieGenre());
         this.movieCountry.setText(this.movie.getMovieCountry());
         this.movieDuration.setText(this.movie.getMovieDuration());
+        this.moviePrice.setText(String.valueOf(this.movie.getMoviePrice()));
         this.cinemaHall.getSelectionModel().select(this.movie.getCinemaHall());
     }
 
@@ -101,16 +105,17 @@ public class EditMovieController {
         String movieGenreText = this.movieGenre.getText();
         String movieCountryText = this.movieCountry.getText();
         String movieDurationText = this.movieDuration.getText();
+        String moviePriceText = this.moviePrice.getText();
         if (confirm.validate(movieNameText, movieGenreText, movieCountryText, movieDurationText) &&
                 !cinemaHall.getSelectionModel().isEmpty()) {
             Map<String, Object> data = new HashMap<>();
-
             data.put("movieId", this.movie.getMovieId());
             data.put("movieName", movieNameText);
             data.put("movieGenre", movieGenreText);
             data.put("movieCountry", movieCountryText);
             data.put("movieDuration", movieDurationText);
-            data.put("hallId", cinemaHall.getValue().getHallId());
+            data.put("moviePrice",Integer.parseInt(moviePriceText));
+            data.put("cinemaHallId", cinemaHall.getValue().getHallId());
 
             Runner.sendData(new ClientRequest("editMovie", data));
             ServerResponse response = Runner.getData();

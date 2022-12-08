@@ -18,10 +18,10 @@ public class MainController {
     private Button allUsers;
 
     @FXML
-    private Button allUsers1;
+    private Button booking;
 
     @FXML
-    private Button booking;
+    private Button bookingList;
 
     @FXML
     private Button allDepartments;
@@ -36,7 +36,8 @@ public class MainController {
     private void initialize() {
         if (!"Администратор".equals(Runner.getStatus().getStatusName())) {
             allUsers.setVisible(false);
-            allUsers1.setVisible(false);
+            workers.setVisible(false);
+            bookingList.setVisible(false);
         }
         if ("Администратор".equals(Runner.getStatus().getStatusName())) {
             booking.setVisible(false);
@@ -59,7 +60,15 @@ public class MainController {
             allDepartments.getScene().getWindow().hide();
             sceneChanger.changeScene("/fxml/cinemahall_list.fxml");
         });
+        booking.setOnAction(event -> {
+            booking.getScene().getWindow().hide();
+            sceneChanger.changeScene("/fxml/booking.fxml");
+        });
 
+        bookingList.setOnAction(event -> {
+            booking.getScene().getWindow().hide();
+            sceneChanger.changeScene("/fxml/booking-list.fxml");
+        });
 
         back.setOnAction(event -> {
             Runner.setStatus(null);

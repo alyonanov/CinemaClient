@@ -13,12 +13,8 @@ public class MovieInfoConfirm {
     private MovieInfoConfirm() {
     }
 
-    private static final String PRODUCT_NAME_FORMAT = ".{2,50}";
-    private static final String SALARY_FORMAT = "[1-9][0-9]{0,3}([.][0-9]{1,2})?";
-    private static final String AMOUNT_FORMAT = "[1-9][0-9]{0,4}";
-    private static final String FILE_PATH_FORMAT = ".+\\.(jpg|png|jpeg|bmp|gif)";
     private static final String NAME_FORMAT_REGEX = ".{2,30}";
-    private static final String PHONE_NUMBER_REGEX = "^(\\s*)?(\\+)?([- _():=+]?\\d[- _():=+]?){10,14}(\\s*)?$";
+    //private static final String GENRE_REGEX = ".{2,30}";
 
     public boolean validate(String movieName,
                             String movieGenre,
@@ -28,6 +24,42 @@ public class MovieInfoConfirm {
                 movieName.matches(NAME_FORMAT_REGEX) &&
                 movieGenre.matches(NAME_FORMAT_REGEX) &&
                 movieCountry.matches(NAME_FORMAT_REGEX) &&
-                movieDuration.matches(PHONE_NUMBER_REGEX);
+                movieDuration.matches(NAME_FORMAT_REGEX);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

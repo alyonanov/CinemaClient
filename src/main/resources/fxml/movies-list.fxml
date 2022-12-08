@@ -16,14 +16,15 @@
             <TableView fx:id="moviesTable" layoutX="23.0" layoutY="140.0" prefHeight="345.0" prefWidth="679.0" style="-fx-background-color: white;">
 
                 <columns>
-                    <TableColumn fx:id="movieNameColumn" prefWidth="138.66665649414062" style="-fx-border-color: white; -fx-background-color: white;" text="Название" />
-                    <TableColumn fx:id="movieGenreColumn" prefWidth="99.33331298828125" style="-fx-border-color: white; -fx-background-color: white;" text="Жанр" />
-                    <TableColumn fx:id="movieCountryColumn" prefWidth="164.0" style="-fx-border-color: white; -fx-background-color: white;" text="Страна производства" />
-                    <TableColumn fx:id="movieDurationColumn" prefWidth="109.3333740234375" style="-fx-border-color: white; -fx-background-color: white;" text="Длительность" />
-                    <TableColumn fx:id="cinemaHallColumn" prefWidth="194.66668701171875" style="-fx-border-color: white; -fx-background-color: white;" text="Кинозал" />
+                    <TableColumn fx:id="movieNameColumn" prefWidth="100.00002861022949" text="Название" />
+                    <TableColumn fx:id="movieGenreColumn" prefWidth="88.00000762939453" text="Жанр" />
+                    <TableColumn fx:id="movieCountryColumn" prefWidth="139.9999237060547" text="Страна производства" />
+                    <TableColumn fx:id="movieDurationColumn" prefWidth="129.33331298828125" text="Длительность" />
+                    <TableColumn fx:id="moviePriceColumn" prefWidth="103.33340454101562" text="Цена" />
+                    <TableColumn fx:id="cinemaHallColumn" prefWidth="116.0" text="Кинозал" />
                 </columns>
             </TableView>
-            <Button fx:id="addMovie" layoutX="23.0" layoutY="85.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="202.0" style="-fx-background-color: black; -fx-border-color: #DEDF42; -fx-border-radius: 15; -fx-border-width: 2;" text="Добавить фильм" textFill="#dedf42">
+            <Button fx:id="addMovie" layoutX="23.0" layoutY="85.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="202.0" style="-fx-background-color: black; -fx-border-color: #DEDF42; -fx-border-radius: 15; -fx-border-width: 2;" text="Добавить сеанс" textFill="#dedf42">
                 <font>
                     <Font name="Candara" size="14.0" />
                 </font>

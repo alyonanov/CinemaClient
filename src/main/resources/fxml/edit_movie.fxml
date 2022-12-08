@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.movie.EditMovieController">
+    <Button fx:id="addMovie" layoutX="90.0" layoutY="416.0" mnemonicParsing="false" style="-fx-background-color: #DEDF42;" text="Изменить">
+        <font>
+            <Font name="Georgia" size="17.0" />
+        </font>
+    </Button>
+    <Button fx:id="cancel" layoutX="317.0" layoutY="416.0" mnemonicParsing="false" style="-fx-background-color: #DEDF42;" text="Назад">
+        <font>
+            <Font name="Georgia" size="17.0" />
+        </font>
+    </Button>
+    <TextField fx:id="movieName" layoutX="180.0" layoutY="43.0" prefHeight="33.0" prefWidth="294.0" style="-fx-background-radius: 15;">
+        <font>
+            <Font name="Georgia" size="18.0" />
+        </font>
+    </TextField>
+    <TextField fx:id="movieGenre" layoutX="180.0" layoutY="97.0" prefHeight="33.0" prefWidth="294.0" style="-fx-background-radius: 15;">
+        <font>
+            <Font name="Georgia" size="18.0" />
+        </font>
+    </TextField>
+    <TextField fx:id="movieCountry" layoutX="180.0" layoutY="153.0" prefHeight="33.0" prefWidth="294.0" style="-fx-background-radius: 15;">
+        <font>
+            <Font name="Georgia" size="18.0" />
+        </font>
+    </TextField>
+    <TextField fx:id="movieDuration" layoutX="329.0" layoutY="209.0" prefHeight="33.0" prefWidth="145.0" style="-fx-background-radius: 15;">
+        <font>
+            <Font name="Georgia" size="18.0" />
+        </font>
+    </TextField>
+    <ChoiceBox fx:id="cinemaHall" layoutX="244.0" layoutY="324.0" prefHeight="25.0" prefWidth="230.0" />
+
+    <TextField fx:id="moviePrice" layoutX="329.0" layoutY="265.0" prefHeight="33.0" prefWidth="145.0" promptText="BYN" style="-fx-background-radius: 15;">
+        <font>
+            <Font name="Georgia" size="18.0" />
+        </font>
+    </TextField>
+   <Text fill="WHITE" layoutX="43.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Длительность" wrappingWidth="160.66664632161473">
+      <font>
+         <Font name="Candara" size="20.0" />
+      </font>
+   </Text>
+   <Text fill="WHITE" layoutX="43.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Жанр" wrappingWidth="71.33333333333326">
+      <font>
+         <Font name="Candara" size="20.0" />
+      </font>
+   </Text>
+   <Text fill="WHITE" layoutX="43.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Страна" wrappingWidth="93.99998982747411">
+      <font>
+         <Font name="Candara" size="20.0" />
+      </font>
+   </Text>
+   <Text fill="WHITE" layoutX="43.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Название" wrappingWidth="93.99998982747411">
+      <font>
+         <Font name="Candara" size="20.0" />
+      </font>
+   </Text>
+   <Text fill="WHITE" layoutX="43.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Цена сеанса" wrappingWidth="160.66664632161473">
+      <font>
+         <Font name="Candara" size="20.0" />
+      </font>
+   </Text>
+   <Text fill="WHITE" layoutX="43.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Кинозал" wrappingWidth="160.66664632161473">
+      <font>
+         <Font name="Candara" size="20.0" />
+      </font>
+   </Text>
+</AnchorPane>

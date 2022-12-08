@@ -49,13 +49,6 @@ public class BookingController {
     private TableColumn<MovieAttribute, Integer> moviePriceColumn;
     @FXML
     private Button booking;
-
-//    @FXML
-//    private Text movieName;
-
-    //    @FXML
-//    private Text movieGenre;
-//
     @FXML
     private Button back;
 
@@ -129,17 +122,5 @@ private void bookingMovie(){
         });
         cinemaHallColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCinemaHall().getHallType()));
     }
-
-
-//    private List<CinemaHall> getCinemaHalls() {
-//        Runner.sendData(new ClientRequest("getAllCinemaHalls", new HashMap<>()));
-//        ServerResponse response = Runner.getData();
-//        if (!response.isError()) {
-//            Map<String, Object> cinemaHallMap = response.getData();
-//            List cinemaHallData = (List) cinemaHallMap.get("cinemaHalls");
-//            return parser.cinemaHalls(cinemaHallData);
-//        }
-//        return new ArrayList<>();
-//    }
 
 }

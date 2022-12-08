@@ -116,7 +116,7 @@ public class CinemaHallActionController {
             }
         } else {
             Alert alert = new Alert(ERROR, "Информация некорректна:\n" +
-                    "Название кафедры должно быть более 3 символов но менее 50!");
+                    "Название кинозала должно быть более 3 символов но менее 50!");
             alert.show();
         }
     }

@@ -50,12 +50,6 @@ public class SignUpController {
     private Button index;
 
     @FXML
-    private Button previous;
-
-    @FXML
-    private Button next;
-
-    @FXML
     private Button back;
 
     @FXML
@@ -63,7 +57,7 @@ public class SignUpController {
 
     @FXML
     private void initialize() {
-        previous.setVisible(false);
+
         signUp.setOnAction(event -> processSignUp());
         index.setOnAction(event -> {
             index.getScene().getWindow().hide();
@@ -104,10 +98,11 @@ public class SignUpController {
             }
         } else {
             Alert alert = new Alert(ERROR, "Информация некорректна:\n" +
-                    "1) логин должен состоять из 6-15 символов: латинских букв, дефисов (-) и нижних подчеркиваний (_)\n" +
+                    "1) логин должен состоять из 4-15 символов: латинских букв\n" +
                     "2) имя и фамилия должны состоять из 2-30 символов\n" +
-                    "3) пароль должен состоять из 8-30 символов: латинских букв, дефисов (-) и нижних подчеркиваний (_)\n" +
-                    "4) пароли должны совпадать");
+                    "3) пароль должен состоять из 4-28 символов: латинских букв, дефисов (-) и нижних подчеркиваний (_)\n" +
+                    "4) электронная почта должна соответствовать формату ***@****.**\n" +
+                    "5) пароли должны совпадать");
             alert.show();
         }
     }

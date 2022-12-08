@@ -54,14 +54,14 @@ public class ChangePasswordController {
             ServerResponse response = Runner.getData();
             if (!response.isError()) {
                 save.getScene().getWindow().hide();
-                Alert alert = new Alert(INFORMATION, "Смена пароля прошла успешно!");
+                Alert alert = new Alert(INFORMATION, "Пароль изменён");
                 alert.show();
             } else {
-                Alert alert = new Alert(ERROR, "Произошла ошибка!");
+                Alert alert = new Alert(ERROR, "Ошибка при изменении пароля");
                 alert.show();
             }
         } else {
-            Alert alert = new Alert(ERROR, "Введен некорректный пароль!");
+            Alert alert = new Alert(ERROR, "Пароль некорректный (не менее 4 символов)");
             alert.show();
         }
     }

@@ -55,22 +55,14 @@ public class CinemaHallListController {
         if (!"Администратор".equals(Runner.getStatus().getStatusName())) {
             addCinemaHall.setVisible(false);
             deleteCinemaHall.setVisible(false);
-        } else {
-            table.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2) {
-                    CinemaHallAttribute cinemaHallAttribute = table.getSelectionModel().getSelectedItem();
-                    sceneChanger.setDataId(cinemaHallAttribute.getHallId().getValue());
-                    sceneChanger.changeSceneAndWait("/fxml/add_cinemahall.fxml");
-                    fillMoviesTable();
-                }
-            });
+
         }
 
         fillMoviesTable();
 
 
         addCinemaHall.setOnAction(event -> {
-            sceneChanger.changeSceneAndWait("/fxml/add_cinemahall.fxml");
+            sceneChanger.changeSceneAndWait("/fxml/addcinemahall.fxml");
             fillMoviesTable();
         });
 
@@ -116,20 +108,20 @@ public class CinemaHallListController {
         //hallSeatsNumber.setCellValueFactory(cellData -> cellData.getValue().gethallSeatsNumber();
     }
     private void delete() {
-        int movieId = table.getSelectionModel()
+        int hallId = table.getSelectionModel()
                 .selectedItemProperty()
                 .getValue()
                 .getHallId()
                 .getValue();
 
             Map<String, Object> map = new HashMap<>();
-            map.put("hallId", movieId);
+            map.put("hallId", hallId);
             Runner.sendData(new ClientRequest("deleteCinemaHall", map));
             ServerResponse response = Runner.getData();
             System.out.println(response.isError());
             System.out.println(response.getErrorMessage());
             if (response.isError()) {
-                Alert alert = new Alert(ERROR, "Произошла ошибка при удалении кафедры!");
+                Alert alert = new Alert(ERROR, "Ошибка при удалении кинозала");
                 alert.show();
             }
         }
