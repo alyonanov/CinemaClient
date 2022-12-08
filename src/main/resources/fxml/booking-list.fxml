@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="894.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.user.BookingListController">
+    <AnchorPane layoutX="-8.0" layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="900.0" style="-fx-background-color: black;">
+        <children>
+            <TableView fx:id="bookingTable" layoutX="25.0" layoutY="117.0" prefHeight="345.0" prefWidth="859.0" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn fx:id="movieNameColumn" prefWidth="78.66665840148926" text="Название" />
+                    <TableColumn fx:id="movieGenreColumn" prefWidth="77.33333587646484" text="Жанр" />
+                    <TableColumn fx:id="movieCountryColumn" prefWidth="130.6666717529297" text="Страна производства" />
+                    <TableColumn fx:id="movieDurationColumn" prefWidth="92.66668701171875" text="Длительность" />
+                    <TableColumn fx:id="moviePriceColumn" prefWidth="56.6666259765625" text="Цена" />
+                    <TableColumn fx:id="cinemaHallColumn" prefWidth="91.33334350585938" text="Кинозал" />
+                    <TableColumn fx:id="userNameColumn" prefWidth="119.33331298828125" text="Имя пользователя" />
+                    <TableColumn fx:id="userSurnameColumn" prefWidth="115.33331298828125" text="Фамилия" />
+                    <TableColumn fx:id="userEmailColumn" prefWidth="96.0" text="Почта" />
+
+                </columns>
+            </TableView>
+            <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#dedf42" height="56.0" layoutX="355.0" layoutY="16.0" strokeType="INSIDE" width="554.0" />
+            <Button fx:id="main" layoutX="368.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: 11111;" text="Заявки" textFill="WHITE">
+                <font>
+                    <Font name="Candara Bold" size="39.0" />
+                </font>
+            </Button>
+            <ImageView fitHeight="47.0" fitWidth="46.0" layoutX="800.0" layoutY="21.0">
+                <image>
+                    <Image url="@../back-button.png" />
+                </image>
+                <effect>
+                    <ColorAdjust brightness="1.0" />
+                </effect>
+            </ImageView>
+            <Button fx:id="back" layoutX="793.0" layoutY="16.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="59.0" style="-fx-background-color: #ffffff00;" textFill="#ffffff00">
+                <font>
+                    <Font name="Georgia" size="17.0" />
+                </font>
+            </Button>
+        </children>
+    </AnchorPane>
+</AnchorPane>
