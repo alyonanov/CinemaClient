@@ -43,13 +43,13 @@ public class CinemaHallActionController {
     private void initialize() {
 
         if (Objects.nonNull(SceneChanger.getInstance().getDataId())) {
-            this.label.setText("Изменение кафедры");
+            this.label.setText("Изменение кинозала");
             save.setText("Изменить");
             this.getCinemaHall(SceneChanger.getInstance().getDataId());
             this.hallType.setText(this.cinemaHall.getHallType());
             save.setOnAction(event -> update());
         } else {
-            this.label.setText("Добавление кафедры");
+            this.label.setText("Добавление кинозала");
             save.setText("Сохранить");
             save.setOnAction(event -> add());
         }
@@ -83,7 +83,7 @@ public class CinemaHallActionController {
         }
         } else {
             Alert alert = new Alert(ERROR, "Информация некорректна:\n" +
-                    "Название кафедры должно быть более 3 символов но менее 50!");
+                    "Название кинозала должно быть более 3 символов но менее 50!");
             alert.show();
         }
     }
@@ -108,7 +108,7 @@ public class CinemaHallActionController {
                 Alert alert = new Alert(ERROR, "Информация некорректна!");
                 alert.show();
             } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Кафедра обновлена!");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Кинозал обновлен!");
                 alert.show();
 
                 clear();
@@ -128,8 +128,8 @@ public class CinemaHallActionController {
         Runner.sendData(new ClientRequest("getCinemaHallById", data));
         ServerResponse response = Runner.getData();
         if (!response.isError()) {
-            Map<String, Object> workerMap = response.getData();
-            cinemaHall = parser.cinemaHall((Map<String, Object>) workerMap.get("cinemaHall"));
+            Map<String, Object> movieMap = response.getData();
+            cinemaHall = parser.cinemaHall((Map<String, Object>) movieMap.get("cinemaHall"));
         }
     }
 

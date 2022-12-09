@@ -9,7 +9,7 @@ import usage.confirm.SceneChanger;
 public class MainController {
 
     @FXML
-    private Button workers;
+    private Button movies;
 
     @FXML
     private Button myProfile;
@@ -24,7 +24,7 @@ public class MainController {
     private Button bookingList;
 
     @FXML
-    private Button allDepartments;
+    private Button allCinemaHalls;
 
 
     @FXML
@@ -36,15 +36,15 @@ public class MainController {
     private void initialize() {
         if (!"Администратор".equals(Runner.getStatus().getStatusName())) {
             allUsers.setVisible(false);
-            workers.setVisible(false);
+            movies.setVisible(false);
             bookingList.setVisible(false);
         }
         if ("Администратор".equals(Runner.getStatus().getStatusName())) {
             booking.setVisible(false);
         }
 
-        workers.setOnAction(event -> {
-            workers.getScene().getWindow().hide();
+        movies.setOnAction(event -> {
+            movies.getScene().getWindow().hide();
             sceneChanger.changeScene("/fxml/movies-list.fxml");
         });
         myProfile.setOnAction(event -> {
@@ -56,8 +56,8 @@ public class MainController {
             sceneChanger.changeScene("/fxml/users.fxml");
         });
 
-        allDepartments.setOnAction(event -> {
-            allDepartments.getScene().getWindow().hide();
+        allCinemaHalls.setOnAction(event -> {
+            allCinemaHalls.getScene().getWindow().hide();
             sceneChanger.changeScene("/fxml/cinemahall_list.fxml");
         });
         booking.setOnAction(event -> {
