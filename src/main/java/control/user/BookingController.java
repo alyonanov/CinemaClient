@@ -12,6 +12,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import main.Runner;
 import usage.MapParser;
 import usage.confirm.SceneChanger;
@@ -54,6 +57,15 @@ public class BookingController {
 
     @FXML
     private Button main;
+    @FXML
+    private Text name;
+    @FXML
+    private Text genre;
+    @FXML
+    private Text country;
+
+    @FXML
+    private ImageView image;
 
 
     private SceneChanger sceneChanger = SceneChanger.getInstance();
@@ -121,6 +133,22 @@ private void bookingMovie(){
             return new SimpleIntegerProperty(moviePriceColumn).asObject();
         });
         cinemaHallColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCinemaHall().getHallType()));
+        showMovieDetails(null);
+        moviesTable.getSelectionModel()
+                .selectedItemProperty()
+                .addListener((observable, oldValue, newValue) -> showMovieDetails(newValue));
+   }
+    private void showMovieDetails(MovieAttribute movieAttribute) {
+        if (movieAttribute != null) {
+            name.setText(movieAttribute.getMovieName().getValue());
+            genre.setText(movieAttribute.getMovieGenre().getValue());
+            country.setText(movieAttribute.getMovieCountry().getValue());
+            image.setImage(new Image(movieAttribute.getImagePath().getValue()));
+
+        } else {
+            name.setText("");
+            image.setImage(null);
+        }
     }
 
 }
